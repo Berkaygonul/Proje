@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+void SortIntArr(int arr[], int size) {
+    int i, j, minIndex, temp;
+    
+    for (i = 0; i < size-1; i++) {
+        minIndex = i;
+        
+        // En küçük elemanın konumunu bul
+        for (j = i+1; j < size; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        
+        // Elemanları yer değiştir
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}
+
+int main() {
+    int arr[100], size, i;
+    
+    printf("Dizi boyutunu girin: ");
+    scanf("%d", &size);
+    
+    printf("Dizi elemanlarını girin: ");
+    for (i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    SortIntArr(arr, size);
+    
+    printf("Sıralanmış dizi: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
+    
+    
+}

@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool IsPalindrom(char word[]) {
+    int i, j;
+    int length = strlen(word);
+    
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        if (word[i] != word[j]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    char word[100];
+    
+    printf("Kelimeyi girin: ");
+    scanf("%s", word);
+    
+    if (IsPalindrom(word)) {
+        printf("%s, bir palindromdur.\n", word);
+    } else {
+        printf("%s, bir palindrom değildir.\n", word);
+    }
+    
+    return 0;
+}
